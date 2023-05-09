@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Monitor</title>
+</head>
+<body>
+    <h1>Wallet Monitor</h1>
+    <h2>Wallet Addresses</h2>
+    <ul>
+        {% for address in addresses %}
+            <li>{{ address }} <form method="post" style="display:inline;"><input type="hidden" name="action" value="remove"><input type="hidden" name="address" value="{{ address }}"><button type="submit">X</button></form></li>
+        {% endfor %}
+    </ul>
+    <h2>Add Wallet Address</h2>
+    <form method="post">
+        <input type="hidden" name="action" value="add">
+        <input type="text" name="address" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
